@@ -11,30 +11,6 @@ REM configure project name
 REM ========================================================
 set ProjectName=ArkShop
 
-REM ========================================================
-REM configure description
-REM ========================================================
-set Description=Shop, Currency & Kits 
-
-REM ========================================================
-REM configure Version
-REM ========================================================
-set Version=3.0
-
-REM ========================================================
-REM configure min api version
-REM ========================================================
-set MinApiVersion=3.0
-
-REM ========================================================
-REM configure ResourceId
-REM ========================================================
-set ResourceId=14
-
-REM ========================================================
-REM configure Dependencies
-REM ========================================================
-set ResourceId=Permissions
 
 
 set MAIN_DIR=%cd%
@@ -93,29 +69,12 @@ echo #    %WORKSPACE_DIR%\Release
 echo # 
 
 if not exist %WORKSPACE_DIR%\Release\config.json ( 
-copy %MAIN_DIR%\config\config.json %WORKSPACE_DIR%\Release 
+copy %MAIN_DIR%\Configs\config.json %WORKSPACE_DIR%\Release 
 )
 
-
-REM ========================================================
-REM PluginInfo description
-REM ========================================================
-if exist %WORKSPACE_DIR%\Release\PluginInfo.json ( 
-del %WORKSPACE_DIR%\Release\PluginInfo.json
+if not exist %WORKSPACE_DIR%\Release\PluginInfo.json ( 
+copy %MAIN_DIR%\Configs\PluginInfo.json %WORKSPACE_DIR%\Release 
 )
-
-cd %WORKSPACE_DIR%\Release  
-
-echo {                                 >> PluginInfo.json
-echo "FullName":"%ProjectName%",       >> PluginInfo.json
-echo "Description":"%Description%",    >> PluginInfo.json
-echo "Version":%Version%,              >> PluginInfo.json
-echo "MinApiVersion":%MinApiVersion%,  >> PluginInfo.json
-echo "ResourceId":%ResourceId%         >> PluginInfo.json
-echo "Dependencies":[                  >> PluginInfo.json
-echo  %ResourceId%                     >> PluginInfo.json
-echo   ]                               >> PluginInfo.json
-echo }                                 >> PluginInfo.json
 
    
 explorer  %WORKSPACE_DIR%\Release 

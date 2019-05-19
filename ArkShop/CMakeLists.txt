@@ -47,8 +47,8 @@ set_target_properties(my_sql PROPERTIES
 message ("TODO: import to project")
 add_library(permissions STATIC IMPORTED)
 set_target_properties(permissions PROPERTIES
-  IMPORTED_LOCATION C:/Users/Matth/Documents/arkplugins/plugins/Permissions/out_lib/Permissions.lib
-  INTERFACE_INCLUDE_DIRECTORIES C:/Users/Matth/Documents/arkplugins/plugins/Permissions/Permissions/Public/
+  IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/../Permissions/out_lib/Permissions.lib
+  INTERFACE_INCLUDE_DIRECTORIES ${CMAKE_CURRENT_SOURCE_DIR}/../Permissions/Permissions/Public/
 )
 
 
