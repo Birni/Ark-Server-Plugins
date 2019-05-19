@@ -14,6 +14,8 @@
 #include "StoreSell.h"
 #include "TimedRewards.h"
 
+#include "UIHandler.h"
+
 #pragma comment(lib, "ArkApi.lib")
 #pragma comment(lib, "Permissions.lib")
 
@@ -233,6 +235,8 @@ void Load()
 
 		ArkApi::GetCommands().AddConsoleCommand("ArkShop.Reload", &ReloadConfig);
 		ArkApi::GetCommands().AddRconCommand("ArkShop.Reload", &ReloadConfigRcon);
+
+		UIHandler::UIHandler_InitHooks();
 	}
 	catch (const std::exception& error)
 	{
@@ -261,6 +265,8 @@ void Unload()
 	ArkShop::Kits::Unload();
 
 	ArkShop::StoreSell::Unload();
+
+	UIHandler::UIHandler_RemoveHooks();
 }
 
 BOOL APIENTRY DllMain(HMODULE /*hModule*/, DWORD ul_reason_for_call, LPVOID /*lpReserved*/)
