@@ -9,7 +9,8 @@ namespace ArkShop
 	class SHOP_API ITimedRewards
 	{
 	public:
-		virtual ~ITimedRewards() = default;
+		~ITimedRewards() = default; 
+		ITimedRewards::ITimedRewards() {};
 
 		virtual void AddTask(const FString& id, uint64 steam_id, const std::function<void()>& reward_callback, int interval) = 0;
 	};

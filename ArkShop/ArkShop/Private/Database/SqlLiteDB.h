@@ -3,9 +3,10 @@
 #include "../hdr/sqlite_modern_cpp.h"
 
 #include <Tools.h>
-
+#include "API/ARK/Ark.h"
 #include "IDatabase.h"
-#include "../ArkShop.h"
+#include "ArkShop.h"
+#include "Tools.h"
 
 class SqlLite : public IDatabase
 {
@@ -30,6 +31,7 @@ public:
 		catch (const std::exception& exception)
 		{
 			Log::GetLog()->error("({} {}) Unexpected DB error {}", __FILE__, __FUNCTION__, exception.what());
+
 		}
 	}
 

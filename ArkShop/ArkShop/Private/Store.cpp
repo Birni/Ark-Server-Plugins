@@ -1,6 +1,7 @@
 #include <Store.h>
 
 #include <Points.h>
+#include "API/ARK/Ark.h"
 
 #include "ArkShop.h"
 #include "DBHelper.h"
